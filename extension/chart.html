@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>GSC Terminal</title>
+  <link rel="stylesheet" href="chart.css">
+</head>
+<body>
+  <header id="toolbar">
+    <div class="group">
+      <button id="backToGsc" title="Back to the Search Console view (Alt+T)" hidden>◧ GSC</button>
+      <span class="logo">GSC<b>TERM</b></span>
+      <select id="site" title="Property"></select>
+      <button id="connect" class="accent" hidden>Connect Google</button>
+    </div>
+    <div class="group seg" id="metric">
+      <button data-v="clicks">Clicks</button>
+      <button data-v="impressions">Impr</button>
+      <button data-v="ctr">CTR</button>
+      <button data-v="position">Pos</button>
+    </div>
+    <div class="group seg" id="tf">
+      <button data-v="D">1D</button>
+      <button data-v="W">1W</button>
+      <button data-v="M">1M</button>
+    </div>
+    <div class="group seg" id="type">
+      <button data-v="candles" title="Candles">▮▯</button>
+      <button data-v="ha" title="Heikin Ashi">HA</button>
+      <button data-v="line" title="Line">╱</button>
+      <button data-v="area" title="Area">◢</button>
+    </div>
+    <div class="group toggles" id="ind">
+      <button data-v="vol">Vol</button>
+      <button data-v="sma" title="SMA fast/slow">MA</button>
+      <button data-v="bb" title="Bollinger 20,2">BB</button>
+      <button data-v="rsi" title="RSI 14">RSI</button>
+      <button data-v="yoy" title="Year-over-year overlay">YoY</button>
+      <button data-v="sig" title="MA crossover signals">Sig</button>
+      <button data-v="ev" title="Event markers (double-click chart to add)">Ev</button>
+    </div>
+    <div class="group">
+      <select id="months" title="History (daily timeframes)">
+        <option value="3">3M</option><option value="6">6M</option>
+        <option value="12">12M</option><option value="16">16M</option>
+      </select>
+      <button id="filtersBtn" title="Filters">Filters</button>
+      <button id="refresh" title="Refresh data">⟳</button>
+      <button id="more" title="More">⋯</button>
+    </div>
+  </header>
+
+  <section id="filters" hidden>
+    <label>Query
+      <select id="queryOp"><option value="contains">contains</option><option value="notContains">not contains</option><option value="equals">equals</option><option value="includingRegex">regex</option><option value="excludingRegex">not regex</option></select>
+      <input id="query" placeholder="e.g. ^(?!.*brand)" spellcheck="false">
+    </label>
+    <label>Page
+      <select id="pageOp"><option value="contains">contains</option><option value="notContains">not contains</option><option value="equals">equals</option><option value="includingRegex">regex</option><option value="excludingRegex">not regex</option></select>
+      <input id="page" placeholder="/blog/" spellcheck="false">
+    </label>
+    <label>Country <input id="country" placeholder="nld" size="4" spellcheck="false"></label>
+    <label>Device
+      <select id="device"><option value="">all</option><option>DESKTOP</option><option>MOBILE</option><option>TABLET</option></select>
+    </label>
+    <label>Type
+      <select id="searchType"><option value="web">web</option><option value="image">image</option><option value="video">video</option><option value="news">news</option><option value="discover">discover</option><option value="googleNews">googleNews</option></select>
+    </label>
+    <label>MA <input id="maFast" type="number" min="2" max="200" size="3"> / <input id="maSlow" type="number" min="3" max="400" size="3"></label>
+    <button id="applyFilters" class="accent">Apply</button>
+    <button id="clearFilters">Clear</button>
+  </section>
+
+  <section id="menu" hidden>
+    <button id="importCsv">Import GSC CSV…</button>
+    <input type="file" id="csvFile" accept=".csv,text/csv" hidden>
+    <button id="exportCsv">Export candles CSV</button>
+    <button id="demo">Load demo data</button>
+    <button id="eventsBtn">Manage events…</button>
+  </section>
+
+  <main>
+    <div id="chart"></div>
+    <div id="legend"></div>
+    <div id="status" hidden></div>
+    <aside id="events" hidden>
+      <h3>Events <small>double-click the chart to add</small></h3>
+      <ul id="eventList"></ul>
+    </aside>
+  </main>
+
+  <footer id="statsbar"></footer>
+
+  <script src="lib/lightweight-charts.standalone.production.js"></script>
+  <script src="lib/indicators.js"></script>
+  <script src="lib/gsc.js"></script>
+  <script src="chart.js"></script>
+</body>
+</html>
