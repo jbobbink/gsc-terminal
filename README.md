@@ -2,7 +2,7 @@
 
 Google Search Console performance reports as TradingView-style candlestick charts. A Chrome extension that takes over the Search Console performance page and shows the same property, report and filters with candles, moving averages, Bollinger Bands, RSI, a YoY overlay and event markers.
 
-Built after John Mueller asked: *"Is there a Search Console → Trading View adapter?"* Write-up: [notprovided.eu]([https://www.notprovided.eu/](https://www.notprovided.eu/gsc-terminal-read-search-console-like-a-trading-chart/)).
+Built after John Mueller asked: *"Is there a Search Console → Trading View adapter?"* Write-up: [https://www.notprovided.eu/](https://www.notprovided.eu/gsc-terminal-read-search-console-like-a-trading-chart/)
 
 ![Weekly clicks with moving averages, crossover signals, YoY overlay and volume](docs/screenshots/01-weekly-clicks-candles.png)
 
